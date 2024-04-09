@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  rtsp_rec_container:
+    container_name: rtsp_rec
+    image: rtsp_rec
+    volumes:
+        - ./captures:/etc/rtsp_rec/captures
+        - ./logs:/etc/rtsp_rec/logs
+        - ./config.sh:/etc/rtsp_rec/config/config.sh:ro # config file
