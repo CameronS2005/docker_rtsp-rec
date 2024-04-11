@@ -12,8 +12,7 @@ rtsp_ip="RTSPRELAYIP"
 rtsp_port="8554"
 rtsp_relay="rtsp://$rtsp_auth@$rtsp_ip:$rtsp_port" # rtsp://USERNAME:PASSWORD@RTSPIP:RTSPPORT
 all_streams=("driveway" "backyard" "garage") # must coincide with wyze camera name minus the -cam for example these are driveway-cam
-#enable_debug=false ## NOT IMPLEMENTED ### INTENDED FOR FFMPEG DEBUG #### THIS OPTION WILL FORCE ffmpeg_args_debug=true FOR ALL CAMS
-#is_pi=true
+
 
 segment_length_minutes="15" # currently half hour segments
 
@@ -36,5 +35,3 @@ capture_dir_root="/opt/rtsp_rec/captures"
 ffmpeg_args="-c:v copy" # this is the variable thats used to record!!! FOR FFMPEG STREAMS!
 #ffmpeg_args_audio="-c:v copy -c:a aac -strict experimental"
 #ffmpeg_args_no_audio="-c:v copy"
-
-#ffmpeg_args_debug="" ## THIS NEEDS ADDED!!
