@@ -1,10 +1,16 @@
-version: '3.9'
+version: '3'
 
 services:
   rtsp_rec_container:
     container_name: rtsp_rec
-    image: rtsp_rec
+    image: rtsp_rec:dev # (Local Image)
     volumes:
-        - ./captures:/etc/rtsp_rec/captures
-        - ./logs:/etc/rtsp_rec/logs
-        - ./config.sh:/etc/rtsp_rec/config/config.sh:ro # config file
+      - "./captures:/opt/rtsp_rec/captures:rw"
+      - "./logs:/opt/rtsp_rec/logs:rw"
+      - "./config:/opt/rtsp_rec/config:rw" # config file
+    environment:
+      - "HOSTNAME=RTSP-REC"
+      - "PUID=1000"
+      - "PGID=1000"
+      - "UMASK=002"
+      - "TZ=America/New_York"
