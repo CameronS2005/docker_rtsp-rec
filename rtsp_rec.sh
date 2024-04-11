@@ -19,7 +19,14 @@ VERSION="1.0.1 DEV Build"
 
 ### MORE LEIGHTWEIGHT SOLUTION THEN SCREEN? SUCH AS & or nohup
 
-source /opt/rtsp_rec/config/config.sh # source variables from config file
+config_file="/opt/rtsp_rec/config/config.sh"
+
+if [[ -f "$config_file" ]]; then
+	source /opt/rtsp_rec/config/config.sh # source variables from config file
+else
+	echo "ERROR! CONFIG FILE NOT FOUND!! ($config_file)"
+	exit 0
+fi
 
 #declare -A restarts
 declare -A last_capture_file
